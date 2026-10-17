@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="so">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buux Online Academy</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#172554}
+header{background:#075985;color:white;text-align:center;padding:25px 12px}
+header h1{margin:0;font-size:27px}
+header p{margin-bottom:0}
+nav{display:flex;justify-content:center;gap:8px;padding:12px;background:white;flex-wrap:wrap}
+button{background:#0284c7;color:white;border:0;border-radius:8px;padding:12px;cursor:pointer}
+main{max-width:700px;margin:auto;padding:16px}
+.card{background:white;padding:18px;border-radius:12px;margin:12px 0;box-shadow:0 2px 7px #ddd}
+input{box-sizing:border-box;width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:7px}
+a{color:#0284c7}
+footer{text-align:center;padding:20px;color:#64748b}
+</style>
+</head>
+<body>
+<header>
+<h1>BUUX ONLINE ACADEMY</h1>
+<p>Waxbarashadaada meel kasta kala soco!</p>
+</header>
+<nav>
+<button onclick="show('home')">Bogga Hore</button>
+<button onclick="show('courses')">Casharrada</button>
+<button onclick="show('about')">Nagu Saabsan</button>
+<button onclick="show('contact')">Xiriir</button>
+</nav>
+<main id="content">
+<div class="card">
+<h2>Ku soo dhowow Buux Online Academy</h2>
+<p>Ku baro aqoon cusub adigoo isticmaalaya telefoonkaaga.</p>
+<button onclick="show('courses')">Daawo Casharrada</button>
+</div>
+<div class="card">
+<h3>Maxaad naga baran kartaa?</h3>
+<p>📚 Casharro waxbarasho</p>
+<p>💻 Teknoolojiyad</p>
+<p>🌍 Aqoonta guud</p>
+</div>
+</main>
+<footer>© 2026 Buux Online Academy</footer>
+<script>
+function show(page){
+let c=document.getElementById('content');
+if(page==='home'){
+c.innerHTML='<div class="card"><h2>Ku soo dhowow Buux Online Academy</h2><p>Waxbarashadaada meel kasta kala soco!</p><button onclick="show(\\'courses\\')">Daawo Casharrada</button></div>';
+}
+if(page==='courses'){
+c.innerHTML='<div class="card"><h2>Casharrada</h2><p>Casharrada cusub dhawaan ayaa lagu dari doonaa.</p><p>Macallimiintu waxay halkan ku soo bandhigi karaan casharro iyo muuqaallo.</p></div>';
+}
+if(page==='about'){
+c.innerHTML='<div class="card"><h2>Nagu Saabsan</h2><p>Buux Online Academy waa madal waxbarasho oo loogu talagalay ardayda.</p></div>';
+}
+if(page==='contact'){
+c.innerHTML='<div class="card"><h2>Nala Soo Xiriir</h2><p>Ku soo dhowow inaad nala soo xiriirto.</p><input id="name" placeholder="Magacaaga"><input id="msg" placeholder="Fariintaada"><button onclick="alert(\\'Fadlan ku dar hab xiriir oo rasmi ah si fariinta loo diro.\\')">Dir Fariinta</button></div>';
+}
+}
+</script>
+</body>
+</html>
