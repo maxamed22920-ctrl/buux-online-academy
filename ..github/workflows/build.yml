@@ -1,0 +1,37 @@
+name: Build Buux Online Academy APK
+
+on:
+workflow_dispatch:
+
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- name: Checkout repository
+uses: actions/checkout@v4
+
+  - name: Set up Java
+    uses: actions/setup-java@v4
+    with:
+      distribution: temurin
+      java-version: '17'
+
+  - name: Set up Android SDK
+    uses: android-actions/setup-android@v3
+
+  - name: Build APK
+    run: |
+      mkdir -p app/src/main/assets
+      echo 'plugins { id "com.android.application" version "8.6.1" }; android { namespace "com.buux.academy"; compileSdk 35; defaultConfig { applicationId "com.buux.academy"; minSdk 23; targetSdk 28; versionCode 1; versionName "1.0" } }' > app/build.gradle
+      echo 'pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }; dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }; rootProject.name="BuuxOnlineAcademy"; include(":app")' > settings.gradle
+      echo '<manifest xmlns:android="http://schemas.android.com/apk/res/android"><application android:theme="@android:style/Theme.Material.Light.NoActionBar" android:label="Buux Online Academy"><activity android:name=".MainActivity" android:exported="true"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity></application></manifest>' > app/src/main/AndroidManifest.xml
+      echo 'package com.buux.academy; import android.app.Activity; import android.os.Bundle; import android.webkit.WebView; public class MainActivity extends Activity { public void onCreate(Bundle b) { super.onCreate(b); WebView w=new WebView(this); w.getSettings().setJavaScriptEnabled(true); setContentView(w); w.loadUrl("file:///android_asset/index.html"); } }' > app/src/main/java/com/buux/academy/MainActivity.java
+      gradle wrapper --gradle-version 8.7
+      chmod +x gradlew
+      ./gradlew assembleDebug
+
+  - name: Upload APK
+    uses: actions/upload-artifact@v4
+    with:
+      name: Buux-Online-Academy-APK
+      path: app/build/outputs/apk/debug/app-debug.apk
