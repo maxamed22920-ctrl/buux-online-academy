@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buux Online Academy</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f0f5ff;
+  margin: 0;
+  padding: 50px 20px;
+}
+.container {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+h1 { color: #1746a2; }
+p { color: #444; line-height: 1.6; }
+button {
+  background: #1746a2;
+  color: white;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>BUUX ONLINE ACADEMY</h1>
+<h2>Welcome to Our Academy</h2>
+<p>Learn online, discover new knowledge, and build your future with Buux Online Academy.</p>
+<button onclick="alert('Welcome to Buux Online Academy!')">Get Started</button>
+</div>
+</body>
+</html>
