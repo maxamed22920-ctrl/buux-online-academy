@@ -107,5 +107,3 @@ steps:
     with:
       name: Buux-Online-Academy-APK
       path: app/build/outputs/apk/debug/app-debug.apk
-
-EOF
